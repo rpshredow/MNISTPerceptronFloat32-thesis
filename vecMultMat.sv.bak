@@ -1,0 +1,42 @@
+module vecMultMat(
+	input clk,
+	input [31:0] vector [3:0],
+	input [31:0] matrix [15:0],
+	output [31:0] out [3:0]
+);
+/*
+wire [31:0] vec1;
+wire [31:0] vec2;
+wire [31:0] vec3;
+wire [31:0] vec4;
+
+wire [31:0] mat1;
+wire [31:0] mat2;
+wire [31:0] mat3;
+wire [31:0] mat4;
+*/
+reg [31:0] sum [3:0];
+
+integer i;
+
+always @ (posedge clk) begin
+/*
+	vec1 <= vector[0];
+	vec2 <= vector[1];
+	vec3 <= vector[2];
+	vec4 <= vector[3];
+	*/
+	if( i < 4 ) begin
+		sum[0] <= sum[0] + matrix[i] * vector[0];
+		sum[1] <= sum[1] + matrix[i + 4] * vector[1];
+		sum[2] <= sum[2] + matrix[i + 8] * vector[2];
+		sum[3] <= sum[3] + matrix[i + 12] * vector[3];
+	end
+	
+	if(i == 4)
+		out <= sum;
+	
+	i <= i + 1;
+end
+
+endmodule

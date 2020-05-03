@@ -1,0 +1,49 @@
+module multAcc(
+	input clk,
+	input [31:0] vecIn1 [3:0],
+	input [31:0] vecIn2 [3:0],
+	output [31:0] out
+);
+
+integer i;
+wire [31:0] multiplicand;
+wire [31:0] multiplier;
+reg [31:0] product;
+wire [31:0] addIn1;
+wire [31:0] addIn2;
+reg [31:0] sum;
+reg [31:0] total;
+
+
+always @ (posedge clk) begin
+	if(i < 4) begin
+		multiplicand <= vecIn1[i];
+		multiplier <= vecIn2[i];
+		
+		addIn1 <= sum;
+		addIn2 <= product;
+	end
+	
+	if(i == 5) begin
+		out <= sum;
+	end
+	
+	if(i < 6) begin
+		i++;
+	end
+end
+
+qmult #(19,32) uut (
+	.i_multiplicand(multiplicand), 
+	.i_multiplier(multiplier), 
+	.o_result(product),
+	.ovr(ovr)
+);
+
+qadd #(19,32) uut (
+	.a(addIn1), 
+	.b(addIn2), 
+	.c(sum)
+);
+
+endmodule

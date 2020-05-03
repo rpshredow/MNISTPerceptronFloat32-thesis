@@ -1,0 +1,218 @@
+module sigmoid(
+	input [31:0]in,
+	output [31:0]out
+);
+
+	reg sign;
+	reg [30:0]number;
+
+	assign sign = in[31];
+	assign number = in[30:0];
+
+	always @ (in) begin
+		if(number >= 2621440 && sign == 0)
+			out <= 524288;
+		else if(number >= 2569011 && number < 2621440 && sign == 0)
+			out <= 520779;
+		else if(number >= 2516582 && number < 2569011 && sign == 0)
+			out <= 520412;
+		else if(number >= 2464153 && number < 2516582 && sign == 0)
+			out <= 520008;
+		else if(number >= 2411724 && number < 2464153 && sign == 0)
+			out <= 519562;
+		else if(number >= 2359296 && number < 2411724 && sign == 0)
+			out <= 519070;
+		else if(number >= 2306867 && number < 2359296 && sign == 0)
+			out <= 518527;
+		else if(number >= 2254438 && number < 2306867 && sign == 0)
+			out <= 517929;
+		else if(number >= 2202009 && number < 2254438 && sign == 0)
+			out <= 517269;
+		else if(number >= 2149580 && number < 2202009 && sign == 0)
+			out <= 516542;
+		else if(number >= 2097152 && number < 2149580 && sign == 0)
+			out <= 515740;
+		else if(number >= 2044723 && number < 2097152 && sign == 0)
+			out <= 514858;
+		else if(number >= 1992294 && number < 2044723 && sign == 0)
+			out <= 513885;
+		else if(number >= 1939865 && number < 1992294 && sign == 0)
+			out <= 512815;
+		else if(number >= 1887436 && number < 1939865 && sign == 0)
+			out <= 511638;
+		else if(number >= 1835008 && number < 1887436 && sign == 0)
+			out <= 510343;
+		else if(number >= 1782579 && number < 1835008 && sign == 0)
+			out <= 508919;
+		else if(number >= 1730150 && number < 1782579 && sign == 0)
+			out <= 507355;
+		else if(number >= 1677721 && number < 1730150 && sign == 0)
+			out <= 505638;
+		else if(number >= 1625292 && number < 1677721 && sign == 0)
+			out <= 503753;
+		else if(number >= 1572864 && number < 1625292 && sign == 0)
+			out <= 501687;
+		else if(number >= 1520435 && number < 1572864 && sign == 0)
+			out <= 499423;
+		else if(number >= 1468006 && number < 1520435 && sign == 0)
+			out <= 496944;
+		else if(number >= 1415577 && number < 1468006 && sign == 0)
+			out <= 494233;
+		else if(number >= 1363148 && number < 1415577 && sign == 0)
+			out <= 491271;
+		else if(number >= 1310720 && number < 1363148 && sign == 0)
+			out <= 488039;
+		else if(number >= 1258291 && number < 1310720 && sign == 0)
+			out <= 484516;
+		else if(number >= 1205862 && number < 1258291 && sign == 0)
+			out <= 480681;
+		else if(number >= 1153433 && number < 1205862 && sign == 0)
+			out <= 476513;
+		else if(number >= 1101004 && number < 1153433 && sign == 0)
+			out <= 471990;
+		else if(number >= 1048576 && number < 1101004 && sign == 0)
+			out <= 467089;
+		else if(number >= 996147 && number < 1048576 && sign == 0)
+			out <= 461791;
+		else if(number >= 943718 && number < 996147 && sign == 0)
+			out <= 456073;
+		else if(number >= 891289 && number < 943718 && sign == 0)
+			out <= 449917;
+		else if(number >= 838860 && number < 891289 && sign == 0)
+			out <= 443303;
+		else if(number >= 786432 && number < 838860 && sign == 0)
+			out <= 436217;
+		else if(number >= 734003 && number < 786432 && sign == 0)
+			out <= 428644;
+		else if(number >= 681574 && number < 734003 && sign == 0)
+			out <= 420575;
+		else if(number >= 629145 && number < 681574 && sign == 0)
+			out <= 412003;
+		else if(number >= 576716 && number < 629145 && sign == 0)
+			out <= 402928;
+		else if(number >= 524288 && number < 576716 && sign == 0)
+			out <= 393352;
+		else if(number >= 471859 && number < 524288 && sign == 0)
+			out <= 383285;
+		else if(number >= 419430 && number < 471859 && sign == 0)
+			out <= 372742;
+		else if(number >= 367001 && number < 419430 && sign == 0)
+			out <= 361745;
+		else if(number >= 314572 && number < 367001 && sign == 0)
+			out <= 350322;
+		else if(number >= 262144 && number < 314572 && sign == 0)
+			out <= 338509;
+		else if(number >= 209715 && number < 262144 && sign == 0)
+			out <= 326347;
+		else if(number >= 157286 && number < 209715 && sign == 0)
+			out <= 313884;
+		else if(number >= 104857 && number < 157286 && sign == 0)
+			out <= 301173;
+		else if(number >= 52428 && number < 104857 && sign == 0)
+			out <= 288271;
+		else if(number >= 0 && number < 52428 && sign == 0)
+			out <= 275240;
+		else if(number < 52428 && number >= 0 && sign == 1)
+			out <= 262144;
+		else if(number < 104857 && number >= 52428 && sign == 1)
+			out <= 249047;
+		else if(number < 157286 && number >= 104857 && sign == 1)
+			out <= 236016;
+		else if(number < 209715 && number >= 157286 && sign == 1)
+			out <= 223114;
+		else if(number < 262144 && number >= 209715 && sign == 1)
+			out <= 210403;
+		else if(number < 314572 && number >= 262144 && sign == 1)
+			out <= 197940;
+		else if(number < 367001 && number >= 314572 && sign == 1)
+			out <= 185778;
+		else if(number < 419430 && number >= 367001 && sign == 1)
+			out <= 173965;
+		else if(number < 471859 && number >= 419430 && sign == 1)
+			out <= 162542;
+		else if(number < 524288 && number >= 471859 && sign == 1)
+			out <= 151545;
+		else if(number < 576716 && number >= 524288 && sign == 1)
+			out <= 141002;
+		else if(number < 629145 && number >= 576716 && sign == 1)
+			out <= 130935;
+		else if(number < 681574 && number >= 629145 && sign == 1)
+			out <= 121359;
+		else if(number < 734003 && number >= 681574 && sign == 1)
+			out <= 112284;
+		else if(number < 786432 && number >= 734003 && sign == 1)
+			out <= 103712;
+		else if(number < 838860 && number >= 786432 && sign == 1)
+			out <= 95643;
+		else if(number < 891289 && number >= 838860 && sign == 1)
+			out <= 88070;
+		else if(number < 943718 && number >= 891289 && sign == 1)
+			out <= 80984;
+		else if(number < 996147 && number >= 943718 && sign == 1)
+			out <= 74370;
+		else if(number < 1048576 && number >= 996147 && sign == 1)
+			out <= 68214;
+		else if(number < 1101004 && number >= 1048576 && sign == 1)
+			out <= 62496;
+		else if(number < 1153433 && number >= 1101004 && sign == 1)
+			out <= 57198;
+		else if(number < 1205862 && number >= 1153433 && sign == 1)
+			out <= 52297;
+		else if(number < 1258291 && number >= 1205862 && sign == 1)
+			out <= 47774;
+		else if(number < 1310720 && number >= 1258291 && sign == 1)
+			out <= 43606;
+		else if(number < 1363148 && number >= 1310720 && sign == 1)
+			out <= 39771;
+		else if(number < 1415577 && number >= 1363148 && sign == 1)
+			out <= 36248;
+		else if(number < 1468006 && number >= 1415577 && sign == 1)
+			out <= 33016;
+		else if(number < 1520435 && number >= 1468006 && sign == 1)
+			out <= 30054;
+		else if(number < 1572864 && number >= 1520435 && sign == 1)
+			out <= 27343;
+		else if(number < 1625292 && number >= 1572864 && sign == 1)
+			out <= 24864;
+		else if(number < 1677721 && number >= 1625292 && sign == 1)
+			out <= 22600;
+		else if(number < 1730150 && number >= 1677721 && sign == 1)
+			out <= 20534;
+		else if(number < 1782579 && number >= 1730150 && sign == 1)
+			out <= 18649;
+		else if(number < 1835008 && number >= 1782579 && sign == 1)
+			out <= 16932;
+		else if(number < 1887436 && number >= 1835008 && sign == 1)
+			out <= 15368;
+		else if(number < 1939865 && number >= 1887436 && sign == 1)
+			out <= 13944;
+		else if(number < 1992294 && number >= 1939865 && sign == 1)
+			out <= 12649;
+		else if(number < 2044723 && number >= 1992294 && sign == 1)
+			out <= 11472;
+		else if(number < 2097152 && number >= 2044723 && sign == 1)
+			out <= 10402;
+		else if(number < 2149580 && number >= 2097152 && sign == 1)
+			out <= 9429;
+		else if(number < 2202009 && number >= 2149580 && sign == 1)
+			out <= 8547;
+		else if(number < 2254438 && number >= 2202009 && sign == 1)
+			out <= 7745;
+		else if(number < 2306867 && number >= 2254438 && sign == 1)
+			out <= 7018;
+		else if(number < 2359296 && number >= 2306867 && sign == 1)
+			out <= 6358;
+		else if(number < 2411724 && number >= 2359296 && sign == 1)
+			out <= 5760;
+		else if(number < 2464153 && number >= 2411724 && sign == 1)
+			out <= 5217;
+		else if(number < 2516582 && number >= 2464153 && sign == 1)
+			out <= 4725;
+		else if(number < 2569011 && number >= 2516582 && sign == 1)
+			out <= 4279;
+		else if(number < 2621440 && number >= 2569011 && sign == 1)
+			out <= 3875;
+		else
+			out <= 0;
+	end
+endmodule

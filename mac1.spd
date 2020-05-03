@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="mac1_sim/mac1.v" type="VERILOG" />
+ <topLevel name="mac1" />
+ <deviceFamily name="cyclonev" />
+</simPackage>
